@@ -10,7 +10,7 @@ public class GameState {
 
     private boolean atFrontPage;
     private boolean atEndPage;
-    private boolean atChallengeMenue;
+    private boolean atChallengeMenu;
     private boolean atHardChallenge;
     private boolean wonHardChallenge;
     private boolean lostChallenge;
@@ -37,11 +37,11 @@ public class GameState {
         atEndPage = false;
         atHardChallenge = false;
         atEasyChallenge = false;
-        atChallengeMenue = false;
+        atChallengeMenu = false;
     }
 
     public void setAtChallengeMenue() {
-        atChallengeMenue = true;
+        atChallengeMenu = true;
         atHardChallenge = false;
         atEasyChallenge = false;
         atFrontPage = false;
@@ -53,7 +53,7 @@ public class GameState {
         atEasyChallenge = false;
         atFrontPage = false;
         atEndPage = false;
-        atChallengeMenue = false;
+        atChallengeMenu = false;
     }
 
     public void setWonHardChallenge() {
@@ -75,7 +75,7 @@ public class GameState {
         atEasyChallenge = true;
         atFrontPage = false;
         atEndPage = false;
-        atChallengeMenue = false;
+        atChallengeMenu = false;
     }
 
     public void setWonEasyChallenge() {
@@ -117,8 +117,8 @@ public class GameState {
         return atFrontPage;
     }
 
-    public boolean atChallengeMenue() {
-        return atChallengeMenue;
+    public boolean atChallengeMenu() {
+        return atChallengeMenu;
     }
 
     // return true if the game is presenting a challenge to the user

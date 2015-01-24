@@ -153,7 +153,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
-			if (gs.wonChallenge()) {
+			if (gs.wonEasyChallenge() || gs.wonHardChallenge()) {
 				g.drawString(WIN + "\n" + CHALLENGE, WIDTH/2,  12);
 			}
 			else {
