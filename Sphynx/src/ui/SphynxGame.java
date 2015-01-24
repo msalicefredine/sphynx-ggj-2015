@@ -1,15 +1,45 @@
 package ui;
 
+import java.awt.Graphics;
+
 import javax.swing.*;
+
 
 /**
  * Created by JD on 2015-01-23.
  */
-
-// everything is temporary
-
-public class SphynxGame extends JPanel {
-    private ChallengeManager cm = new ChallengeManager();
-
-
+public class SphynxGame {
+	
+	// return true if the game is on the start page
+	public boolean isStart() {
+		// TODO
+		return false;
+	}
+	
+	// return true if the game is presenting a challenge to the user
+	public boolean isChallenge() {
+		// TODO
+		return false;
+	}
+	
+	// return true if the user has won
+	public boolean isWin() {
+		// TODO
+		return false;
+	}
+	
+	// return true if the user has lost
+	public boolean isLoss() {
+		// TODO
+		return false;
+	}
+	
+	// draws all pieces of the game that are not UI (read: challenges)
+	public void draw(Graphics g) {
+		// TODO
+ }
+	
 }
+
+
+
