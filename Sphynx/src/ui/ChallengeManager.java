@@ -6,6 +6,10 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import model.Challenge;
+import model.SpaceInvaders;
+import model.Pacman;
+import model.Challenge;
+import model.MiniGames;
 
 
 /**
@@ -15,7 +19,7 @@ public class ChallengeManager {
 	
 	// Fields
 	
-	private static ChallengeManager challengeManager = new ChallengeManager();
+	private static ChallengeManager challengeManager;
 	private Queue<Challenge> hardChallenges;
 	private Queue<Challenge> easyChallenges;
 	private SphynxGame game;
@@ -34,6 +38,9 @@ public class ChallengeManager {
 	}
 	
 	public static ChallengeManager getInstance( ) {
+		if (challengeManager.equals(null)) {
+			challengeManager = new ChallengeManager();
+		}
 		return challengeManager;
 	}
 	
@@ -47,14 +54,14 @@ public class ChallengeManager {
 		hardChallenges = new ArrayBlockingQueue<Challenge>(10);
 		
 		for (int i = 0; i < 20; i++) {
-			int challengeNumber = Math.ceil(game.getNumberChallenges() * Math.random());
-			Challenge c = getChallenge(challengeNumber);
+			double challengeNumber = Math.ceil(5 * Math.random());
+			Challenge c = getChallenge(challengeNumber, false);
 			easyChallenges.add(c);
 		}
 		
 		for (int i = 0; i < 10; i++) {
-			int challengeNumber = Math.ceil(game.getNumberChallenges() * Math.random());
-			Challenge c = getChallenge(challengeNumber);
+			double challengeNumber = Math.ceil(5 * Math.random());
+			Challenge c = getChallenge(challengeNumber, true);
 			hardChallenges.add(c);
 		}
 		
@@ -72,8 +79,53 @@ public class ChallengeManager {
 		}
 	}
 	
-	private Challenge getChallenge(int challengeNumber) {
-		switch(challengeNumber)
+	private Challenge getChallenge(int challengeNumber, boolean isHard) {
+		switch (challengeNumber) {
+		case 0: return new Game();
+		case 1: return new SpaceInvaders(isHard);
+		case 2: return new Tetris(isHard);
+		case 3: return new WordPuzzle(isHard);
+		case 4: return new NumberPuzzle(isHard);
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((easyChallenges == null) ? 0 : easyChallenges.hashCode());
+		result = prime * result + ((game == null) ? 0 : game.hashCode());
+		result = prime * result
+				+ ((hardChallenges == null) ? 0 : hardChallenges.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ChallengeManager other = (ChallengeManager) obj;
+		if (easyChallenges == null) {
+			if (other.easyChallenges != null)
+				return false;
+		} else if (!easyChallenges.equals(other.easyChallenges))
+			return false;
+		if (game == null) {
+			if (other.game != null)
+				return false;
+		} else if (!game.equals(other.game))
+			return false;
+		if (hardChallenges == null) {
+			if (other.hardChallenges != null)
+				return false;
+		} else if (!hardChallenges.equals(other.hardChallenges))
+			return false;
+		return true;
 	}
 	
 }
