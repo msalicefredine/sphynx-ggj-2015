@@ -16,7 +16,7 @@ public class SphynxGame {
 	
 	public SphynxGame() {
 		gs = "start";
-		uimanager = new UIManager();
+		uimanager = new UIManager(this, gs);
 		challengemanager = ChallengeManager.getInstance();
 		pointmanager = new PointManager();
 		timemanager = new TimeManager();

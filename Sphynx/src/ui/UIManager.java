@@ -16,10 +16,13 @@ import javax.swing.JPanel;
 public class UIManager extends JPanel {
 	
 	private SphynxGame game;
+	private GameState gs;
 	private static final String BACKSTORY = "";
 	private static final String CHALLENGE = "What will you do now?";
 	private static final String WIN = "You Win!";
 	private static final String LOSE = "You have been defeated by the sphynx!";
+	private static final String GAMEWIN = "You escaped the Sphynx!";
+	private static final String GAMELOSS = "You have been eaten by the Sphynx...";
 	
 	private static final Integer HEIGHT = 200;
 	private static final Integer WIDTH = 200;
@@ -27,10 +30,11 @@ public class UIManager extends JPanel {
 	/* creates a UIManager
 	 * sets size and colour of background
 	 */
-	public UIManager(SphynxGame sg) {
+	public UIManager(SphynxGame sg, GameState gs) {
 		setPreferredSize(new Dimension(HEIGHT, WIDTH));
 		setBackground(new Color(139, 80, 14));
 		this.game = sg;
+		this.gs = gs;
 		}
 	
 	@Override
@@ -40,22 +44,22 @@ public class UIManager extends JPanel {
 		drawGame(g);
 		
 		// indicates we need the Backstory screen
-		if (game.isStart()) {
+		if (gs.isAtStart()) {
 			gameStart(g);
 		}
 		
 		// indicates the game is posing a challenge to the USER
-		if (game.isChallenge()) {
+		if (gs.isAtChallenge()) {
 			gameChallenge(g);
 		}
 		
 		// indicates the USER has won the game
-		if (game.isWin()) {
+		if (gs.isWonGame()) {
 			gameWin(g);
 		}
 		
 		// the USER has been defeated by the Sphynx
-		if (game.isLoss()) {
+		if (gs.isLostGame()) {
 			gameLoss(g);
 		}
 		
@@ -101,7 +105,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 0)); // black text
 			g.setFont(new Font("Impact", 30, 30));
-			g.drawString(LOSE, WIDTH / 2, 12);
+			g.drawString(GAMELOSS, WIDTH / 2, 12);
 			JButton b = new JButton("Play Again");
 			b.setFont(new Font("Impact", 20, 20));
 			b.setBackground(new Color(190, 190, 190)); // grey button
@@ -120,7 +124,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
-			g.drawString(WIN, WIDTH / 2, 12);
+			g.drawString(GAMEWIN, WIDTH / 2, 12);
 			JButton b = new JButton("Play Again");
 			b.setFont(new Font("Impact", 20, 20)); 
 			b.setBackground(new Color(0, 0, 0)); // white button
@@ -140,7 +144,12 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
-			g.drawString(CHALLENGE, WIDTH / 2, 12);
+			if (gs.isWonChallenge()) {
+				g.drawString(WIN + "\n" + CHALLENGE, WIDTH/2,  12);
+			}
+			else {
+				g.drawString(LOSE + "\n" + CHALLENGE, WIDTH/2,  12);
+			}
 			JButton easy = new JButton("Easy");
 			easy.setFont(new Font("Impact", 20, 20)); 
 			easy.setBackground(new Color(50, 205, 50)); // green button
