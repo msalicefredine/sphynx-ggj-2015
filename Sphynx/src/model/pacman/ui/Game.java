@@ -1,6 +1,5 @@
 package model.pacman.ui;
 
-import model.MiniGames;
 import model.pacman.model.Board;
 import model.pacman.model.Pacman;
 
@@ -12,7 +11,7 @@ import java.awt.event.KeyListener;
 /**
  * Taken from UBC CPSC210 lab on 15-01-24.
  */
-public class Game extends JFrame implements MiniGames {
+public class Game extends JFrame {
 
     private Board gameBoard;
 
@@ -85,7 +84,7 @@ public class Game extends JFrame implements MiniGames {
     /**
      * Starts the main application
      */
-    public void run(boolean hard) {
+    public static void run(String args[]) {
         new Game();
     }
 
