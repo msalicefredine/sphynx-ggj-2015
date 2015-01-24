@@ -16,9 +16,6 @@ public class SphynxGame extends JFrame {
     private UIManager uiManager;
     private Timer timer;
     private GameState gameState;
-    private TimeManager timeManager;
-    private ChallengeManager challengeManager;
-    private PointManager pointManager;
 
 
     public SphynxGame() {
@@ -28,9 +25,6 @@ public class SphynxGame extends JFrame {
         game = new Game();
         gameState = new GameState();
         gameState.setAtStart();
-        timeManager = new TimeManager();
-        challengeManager = ChallengeManager.getInstance();
-        pointManager = new PointManager();
         uiManager = new UIManager(this, gameState);
         add(uiManager);
         addKeyListener(new KeyHandler());

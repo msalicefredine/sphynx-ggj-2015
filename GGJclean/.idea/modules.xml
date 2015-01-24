@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/temp.iml" filepath="$PROJECT_DIR$/temp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GGJclean.iml" filepath="$PROJECT_DIR$/GGJclean.iml" />
     </modules>
   </component>
 </project>
+
