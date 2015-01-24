@@ -9,8 +9,6 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import ca.ubc.cpsc210.spaceinvaders.model.SIGame;
-import ca.ubc.cpsc210.spaceinvaders.model.Sprite;
 
 /**
  * Created by JD on 2015-01-23.

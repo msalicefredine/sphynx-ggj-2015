@@ -37,6 +37,8 @@ public class SphynxGame {
 	// draws all pieces of the game that are not UI (read: challenges)
 	public void draw(Graphics g) {
 		// TODO
+ }
+	
 }
 
 
