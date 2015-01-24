@@ -6,11 +6,11 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import model.Challenge;
+import model.ChallengeDummy;
+import model.SpaceInvaders;
+import model.Pacman;
+import model.Challenge;
 import model.MiniGames;
-import model.WordPuzzle;
-import model.pacman.ui.Game;
-import model.space_invaders.ui.SpaceInvaders;
-import model.tetris.ui.Tetris;
 
 
 /**
@@ -84,12 +84,13 @@ public class ChallengeManager {
 	
 	private Challenge getChallenge(int challengeNumber, boolean isHard) {
 		switch (challengeNumber) {
-		case 0: return new Game();
-		case 1: return new SpaceInvaders(isHard);
-		case 2: return new Tetris(isHard);
-		case 3: return new WordPuzzle(isHard);
-		case 4: return new NumberPuzzle(isHard);
+		case 0: return new ChallengeDummy();
+		case 1: return new ChallengeDummy();
+		case 2: return new ChallengeDummy();
+		case 3: return new ChallengeDummy();
+		case 4: return new ChallengeDummy();
 		}
+		return null;
 	}
 
 	@Override

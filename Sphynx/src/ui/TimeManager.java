@@ -14,21 +14,14 @@ public class TimeManager {
     private boolean timerOn;
 
     public TimeManager() {
-        
+
         timerOn = false;
     }
 
     public long getCurrentTime() {
-        return (System.currentTimeMillis() - startTime) / 60000;
+        return (System.currentTimeMillis() - startTime) / 1000;
     }
 
-
-    public boolean isTimeUp() {
-        if (timerOn) {
-        return endTime <= System.currentTimeMillis();
-        }
-        else return false;
-    }
 
 
     public void startTimer() {
@@ -60,4 +53,13 @@ public class TimeManager {
     public void addBonusTime(long x) {
         endTime = endTime + x;
     }
+
+
+    public boolean isTimeUp() {
+        if (timerOn) {
+            return endTime <= System.currentTimeMillis();
+        }
+        else return false;
+    }
+
 }
