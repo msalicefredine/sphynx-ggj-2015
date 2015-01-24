@@ -5,6 +5,8 @@ import model.pacman.model.Board;
 import model.pacman.model.Pacman;
 
 import javax.swing.*;
+
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -137,4 +139,10 @@ public class Game extends JFrame implements MiniGames {
         public void keyTyped(KeyEvent e) {
         }
     }
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

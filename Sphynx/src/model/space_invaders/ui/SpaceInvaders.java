@@ -4,6 +4,7 @@ import model.MiniGames;
 import model.space_invaders.model.SIGame;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -80,4 +81,10 @@ public class SpaceInvaders extends JFrame implements MiniGames {
     public void run(boolean hard) {
         new SpaceInvaders(hard);
     }
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

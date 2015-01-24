@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -42,7 +43,6 @@ public class UIManager extends JPanel {
 	protected void paintComponent(Graphics g) { 
 		super.paintComponent(g);
 		
-		drawGame(g);
 		
 		// indicates we need the Backstory screen
 		if (gs.atStart()) {
@@ -70,14 +70,10 @@ public class UIManager extends JPanel {
 		
 	}
 	
-
-
-		// Draws the game
-		// modifies: g
-		// effects:  the game is drawn onto the Graphics object g
-		private void drawGame(Graphics g) {
-			game.draw(g); // need this method in game to draw not only UI, but any minigames
-		}
+	public void update(ActionEvent ae) {
+	 // TODO stub
+	}
+	
 		
 		// Draws the Backstory message and the start button
 		private void gameStart(Graphics g) {

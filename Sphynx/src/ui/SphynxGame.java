@@ -1,84 +1,66 @@
 package ui;
 
-import model.Challenge;
+import model.Game;
 
+import javax.swing.*;
 import java.awt.*;
-
+import java.awt.event.*;
 
 /**
- * Created by JD on 2015-01-23.
+ * Created by Sultan on 15-01-24.
  */
-public class SphynxGame {
+public class SphynxGame extends JFrame {
+
+    private static final int INTERVAL = 200;
+    private Game game;
+    private UIManager uiManager;
+    private Timer timer;
+    private GameState gameState;
+    private TimeManager timeManager;
+    private ChallengeManager challengeManager;
+    private PointManager pointManager;
 
 
-	private GameState gs;
-	private UIManager uimanager;
-	private ChallengeManager challengemanager;
-	private PointManager pointmanager;
-	private TimeManager timemanager;
-	
-	public SphynxGame() {
-		gs = new GameState();
-		gs.setAtStart();
-		uimanager = new UIManager(this, gs);
-		challengemanager = ChallengeManager.getInstance();
-		pointmanager = new PointManager();
-		timemanager = new TimeManager();
-		run();
-	}
-	
-	public void run() {
-		while (notFinished()) {
-			
-			
-				
-			}
-			
-			
-			GameState last = gs;
-			
-		}
-	
-	public void draw(Graphics g) {
-		
-	}
-	
-	public boolean notFinished() {
-		return false;
-	}
-
-    //called from EM when start button is pressed
-    // OR after next challenge button is pressed.
-    // change state to BEFORE_CHALLENGE, open up before challenge screen
-    public void openBeforeChallenge(){
-        //TODO
-        // make a call to UImanager to open before challenge screen
+    public SphynxGame() {
+        super("Sphynx");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        game = new Game();
+        gameState = new GameState();
+        gameState.setAtStart();
+        timeManager = new TimeManager();
+        pointManager = new PointManager();
+        uiManager = new UIManager(this, gameState);
+        add(uiManager);
+        addKeyListener(new KeyHandler());
+        pack();
+        centreOnScreen();
+        setVisible(true);
+        addTimer();
     }
 
-    //called from EM when easy button is pressed
-    // start up an easy challenge
-    public void startEasyChallenge(Challenge c){
-        // TODO
+    private void centreOnScreen() {
+        Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
     }
 
-    //called from EM when hard button is pressed in before-challenge screen
-    //start up a hard challenge
-    public void startHardChallenge(Challenge c){
-        //TODO
-        //
+    private void addTimer() {
+        timer = new Timer(INTERVAL, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
-    // when challenged finished, make call to UI manager to bring up after-challenge screen
-    //
-    public void challengeEnd(){
-        //TODO
-        //todo somehow transition from AC-screen back to before challenge screen
+    private class KeyHandler extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            game.keyPressed(e);
+        }
     }
 
-    // called from EM when replay button is pressed in end screen
-    // go back to start screen
-    public void replay(){
-
+    public static void main(String[] args) {
+        new SphynxGame();
     }
-
 }

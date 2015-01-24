@@ -4,6 +4,7 @@ import model.MiniGames;
 import model.tetris.model.TetrisGame;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,4 +68,10 @@ public class Tetris extends JFrame implements MiniGames {
     public void run(boolean hard) {
         new Tetris(hard);
     }
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

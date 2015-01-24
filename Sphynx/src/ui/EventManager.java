@@ -23,7 +23,7 @@ public class EventManager {
     // change game state to before-challenge
     public void handleStartButton(SphynxGame sg) {
         gameState = State.BEFORE_CHALLENGE;
-        sg.openBeforeChallenge();
+        // sg.openBeforeChallenge();
     }
 
     // called when easy button is pressed in before-challenge screen
@@ -32,7 +32,7 @@ public class EventManager {
     public void handleEasyButton(SphynxGame sg) {
         gameState = State.EASY_CHALLENGE;
         Challenge c = cm.getEasyChallenge();
-        sg.startEasyChallenge(c);
+        // sg.startEasyChallenge(c);
     }
 
     // called when hard button is pressed in before-challenge screen
@@ -41,7 +41,7 @@ public class EventManager {
     public void handleHardButton(SphynxGame sg) {
         gameState = State.HARD_CHALLENGE;
         Challenge c = cm.getHardChallenge();
-        sg.startHardChallenge(c);
+        // sg.startHardChallenge(c);
     }
 
     // called when a challenged is finished
@@ -49,12 +49,12 @@ public class EventManager {
     // call sg to bring up after challenge screen todo from UImanager?
     public void handleChallengeEnd(SphynxGame sg) {
         gameState = State.AFTER_CHALLENGE;
-        sg.challengeEnd();
+        // sg.challengeEnd();
     }
 
     public void handleNextChallenge(SphynxGame sg) {
         gameState = State.BEFORE_CHALLENGE;
-        sg.openBeforeChallenge();
+        // sg.openBeforeChallenge();
     }
 
     // called in end screen when replay button is pressed
@@ -62,7 +62,7 @@ public class EventManager {
     // call sg to bring up start screen
     public void handleReplayButton(SphynxGame sg) {
         gameState = State.START_SCREEN;
-        sg.replay();
+        // sg.replay();
     }
 }
 
