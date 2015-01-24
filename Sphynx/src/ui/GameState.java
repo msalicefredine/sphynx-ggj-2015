@@ -10,25 +10,17 @@ public class GameState {
 
     private boolean atFrontPage;
     private boolean atEndPage;
+    private boolean atChallengeMenue;
     private boolean atHardChallenge;
     private boolean wonHardChallenge;
-    private boolean lostHardChallenge;
+    private boolean lostChallenge;
     private boolean atEasyChallenge;
     private boolean wonEasyChallenge;
-    private boolean lostEasyChallenge;
     private boolean wonGame;
     private boolean lostGame;
     private Path path;
 
     public GameState() {
-
-        atFrontPage = false;
-        atHardChallenge = false;
-        wonHardChallenge = false;
-        lostHardChallenge = false;
-        atEndPage = false;
-        wonGame = false;
-        lostGame = false;
 
         path = new Path();
     }
@@ -45,6 +37,15 @@ public class GameState {
         atEndPage = false;
         atHardChallenge = false;
         atEasyChallenge = false;
+        atChallengeMenue = false;
+    }
+
+    public void setAtChallengeMenue() {
+        atChallengeMenue = true;
+        atHardChallenge = false;
+        atEasyChallenge = false;
+        atFrontPage = false;
+        atEndPage = false;
     }
 
     public void setAtHardChallenge() {
@@ -52,21 +53,20 @@ public class GameState {
         atEasyChallenge = false;
         atFrontPage = false;
         atEndPage = false;
+        atChallengeMenue = false;
     }
 
     public void setWonHardChallenge() {
         wonHardChallenge = true;
-        lostHardChallenge = false;
+        lostChallenge = false;
         wonEasyChallenge = false;
-        lostEasyChallenge = false;
 
     }
 
     public void setLostHardChallenge() {
-        lostHardChallenge = true;
+        lostChallenge = true;
         wonHardChallenge = false;
         wonEasyChallenge = false;
-        lostEasyChallenge = false;
 
     }
 
@@ -75,21 +75,20 @@ public class GameState {
         atEasyChallenge = true;
         atFrontPage = false;
         atEndPage = false;
+        atChallengeMenue = false;
     }
 
     public void setWonEasyChallenge() {
         wonHardChallenge = false;
-        lostHardChallenge = false;
+        lostChallenge = false;
         wonEasyChallenge = true;
-        lostEasyChallenge = false;
 
     }
 
     public void setLostEasyChallenge() {
         wonHardChallenge = false;
-        lostHardChallenge = false;
+        lostChallenge = false;
         wonEasyChallenge = false;
-        lostEasyChallenge = true;
 
     }
 
@@ -118,6 +117,10 @@ public class GameState {
         return atFrontPage;
     }
 
+    public boolean atChallengeMenue() {
+        return atChallengeMenue;
+    }
+
     // return true if the game is presenting a challenge to the user
     public boolean atHardChallenge() {
         return atHardChallenge;
@@ -126,11 +129,6 @@ public class GameState {
     // return true if the user has won
     public boolean wonHardChallenge() {
         return wonHardChallenge;
-    }
-
-    // return true if the user has lost
-    public boolean lostHardChallenge() {
-        return lostHardChallenge;
     }
 
     // return true if the game is presenting a challenge to the user
@@ -143,10 +141,11 @@ public class GameState {
         return wonEasyChallenge;
     }
 
-    // return true if the user has lost
-    public boolean lostEasyChallenge() {
-        return lostEasyChallenge;
+    // return true if the user has lost Challenge
+    public boolean lostChallenge() {
+        return lostChallenge;
     }
+
 
     public boolean atEnd() {
         return atEndPage;

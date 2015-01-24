@@ -1,16 +1,15 @@
 package ui;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-
 import model.Challenge;
 import model.ChallengeDummy;
 //import model.SpaceInvaders;
 //import model.Pacman;
 import model.Challenge;
 import model.MiniGames;
+
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
 
 
 /**
@@ -92,6 +91,18 @@ public class ChallengeManager {
 		}
 		return null;
 	}
+
+    // return an easy challenge to be played
+    public Challenge getEasyChallenge(){
+        //TODO
+        return null;
+    }
+
+    // return a hard challenge to be played
+    public Challenge getHardChallenge(){
+        //TODO
+        return null;
+    }
 
 	@Override
 	public int hashCode() {
