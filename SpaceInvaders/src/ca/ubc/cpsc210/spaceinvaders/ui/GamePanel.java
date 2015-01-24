@@ -59,6 +59,7 @@ public class GamePanel extends JPanel {
 		centreString(OVER, g, fm, SIGame.HEIGHT / 2);
 		centreString(REPLAY, g, fm, SIGame.HEIGHT / 2 + 50);
 		g.setColor(saved);
+		
 	}
 	
 	// Centres a string on the screen
