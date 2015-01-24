@@ -54,13 +54,15 @@ public class ChallengeManager {
 		hardChallenges = new ArrayBlockingQueue<Challenge>(10);
 		
 		for (int i = 0; i < 20; i++) {
-			double challengeNumber = Math.ceil(5 * Math.random());
+			Double randN = Math.ceil(5 * Math.random());
+			int challengeNumber = randN.intValue();
 			Challenge c = getChallenge(challengeNumber, false);
 			easyChallenges.add(c);
 		}
 		
 		for (int i = 0; i < 10; i++) {
-			double challengeNumber = Math.ceil(5 * Math.random());
+			Double randN = Math.ceil(5 * Math.random());
+			int challengeNumber = randN.intValue();
 			Challenge c = getChallenge(challengeNumber, true);
 			hardChallenges.add(c);
 		}
