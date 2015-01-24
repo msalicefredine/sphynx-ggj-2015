@@ -29,7 +29,6 @@ public class Tetris extends JFrame {
         sp = new ScorePanel(game);
         add(gp);
         add(sp, BorderLayout.NORTH);
-        //add(np, BorderLayout.NORTH);
         addKeyListener(new KeyHandler());
         pack();
         centreOnScreen();
