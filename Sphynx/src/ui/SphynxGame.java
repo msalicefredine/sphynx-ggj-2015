@@ -1,43 +1,44 @@
 package ui;
-
 import java.awt.*;
-
-
 /**
  * Created by JD on 2015-01-23.
  */
 public class SphynxGame {
+
+	private GameState gs;
+	private UIManager uimanager;
+	private ChallengeManager challengemanager;
+	private PointManager pointmanager;
+	private TimeManager timemanager;
 	
-	// return true if the game is on the start page
-	public boolean isStart() {
-		// TODO
-		return false;
+	public SphynxGame() {
+		gs = "start";
+		uimanager = new UIManager();
+		challengemanager = ChallengeManager.getInstance();
+		pointmanager = new PointManager();
+		timemanager = new TimeManager();
+		run();
 	}
 	
-	// return true if the game is presenting a challenge to the user
-	public boolean isChallenge() {
-		// TODO
-		return false;
+	public void run() {
+		while (notFinished()) {
+			
+			
+				
+			}
+			
+			
+			GameState last = gs;
+			
+		}
 	}
 	
-	// return true if the user has won
-	public boolean isWin() {
-		// TODO
-		return false;
-	}
-	
-	// return true if the user has lost
-	public boolean isLoss() {
-		// TODO
-		return false;
-	}
-	
-	// draws all pieces of the game that are not UI (read: challenges)
 	public void draw(Graphics g) {
-		// TODO
- }
+		
+	}
+	
+	public boolean notFinished() {
+		return false;
+	}
 	
 }
-
-
-
