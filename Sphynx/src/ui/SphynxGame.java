@@ -1,8 +1,6 @@
 package ui;
 
-import java.awt.Graphics;
-
-import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by JD on 2015-01-23.

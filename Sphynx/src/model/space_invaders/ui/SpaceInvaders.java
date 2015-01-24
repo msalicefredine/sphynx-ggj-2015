@@ -1,5 +1,6 @@
 package model.space_invaders.ui;
 
+import model.MiniGames;
 import model.space_invaders.model.SIGame;
 
 import javax.swing.*;
@@ -12,9 +13,9 @@ import java.awt.event.KeyEvent;
 /**
  * Created by Sultan on 15-01-24.
  */
-public class SpaceInvaders extends JFrame {
+public class SpaceInvaders extends JFrame implements MiniGames {
 
-    private static final int INTERVAL = 20;
+    private int interval = 20;
     private SIGame game;
     private GamePanel gp;
     private ScorePanel sp;
@@ -22,7 +23,7 @@ public class SpaceInvaders extends JFrame {
 
     // Constructs main window
     // effects: sets up window in which Space Invaders game will be played
-    public SpaceInvaders() {
+    public SpaceInvaders(boolean hard) {
         super("Space Invaders");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -35,7 +36,7 @@ public class SpaceInvaders extends JFrame {
         pack();
         centreOnScreen();
         setVisible(true);
-        addTimer();
+        addTimer(hard);
         t.start();
     }
 
@@ -43,8 +44,11 @@ public class SpaceInvaders extends JFrame {
     // modifies: none
     // effects:  initializes a timer that updates game each
     //           INTERVAL milliseconds
-    private void addTimer() {
-        t = new Timer(INTERVAL, new ActionListener(){
+    private void addTimer(boolean hard) {
+        if (hard == true) {
+            interval = 10;
+        }
+        t = new Timer(interval, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
                 game.update();
@@ -73,7 +77,7 @@ public class SpaceInvaders extends JFrame {
     }
 
     // Play the game
-    public static void run(String[] args) {
-        new SpaceInvaders();
+    public void run(boolean hard) {
+        new SpaceInvaders(hard);
     }
 }
