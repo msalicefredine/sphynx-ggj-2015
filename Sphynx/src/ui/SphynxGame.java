@@ -15,7 +15,7 @@ public class SphynxGame {
 	private TimeManager timemanager;
 	
 	public SphynxGame() {
-		gs = "start";
+		gs = new GameState();
 		uimanager = new UIManager(this, gs);
 		challengemanager = ChallengeManager.getInstance();
 		pointmanager = new PointManager();
@@ -34,7 +34,6 @@ public class SphynxGame {
 			GameState last = gs;
 			
 		}
-	}
 	
 	public void draw(Graphics g) {
 		

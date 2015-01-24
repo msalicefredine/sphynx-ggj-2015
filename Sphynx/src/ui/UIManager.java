@@ -23,6 +23,7 @@ public class UIManager extends JPanel {
 	private static final String LOSE = "You have been defeated by the sphynx!";
 	private static final String GAMEWIN = "You escaped the Sphynx!";
 	private static final String GAMELOSS = "You have been eaten by the Sphynx...";
+	private static final String CREDITS = "";
 	
 	private static final Integer HEIGHT = 200;
 	private static final Integer WIDTH = 200;
@@ -44,23 +45,27 @@ public class UIManager extends JPanel {
 		drawGame(g);
 		
 		// indicates we need the Backstory screen
-		if (gs.isAtStart()) {
+		if (gs.atStart()) {
 			gameStart(g);
 		}
 		
 		// indicates the game is posing a challenge to the USER
-		if (gs.isAtChallenge()) {
+		if (gs.atChallengeMenu()) {
 			gameChallenge(g);
 		}
 		
 		// indicates the USER has won the game
-		if (gs.isWonGame()) {
+		if (gs.wonGame()) {
 			gameWin(g);
 		}
 		
 		// the USER has been defeated by the Sphynx
-		if (gs.isLostGame()) {
+		if (gs.lostGame()) {
 			gameLoss(g);
+		}
+		
+		if (gs.atEnd()) {
+			gameEnd(g);
 		}
 		
 	}
@@ -129,6 +134,10 @@ public class UIManager extends JPanel {
 			b.setFont(new Font("Impact", 20, 20)); 
 			b.setBackground(new Color(0, 0, 0)); // white button
 			b.setForeground(new Color(0, 0, 128)); // navy text
+			JButton quit = new JButton("Quit");
+			quit.setFont(new Font("Impact", 20, 20)); 
+			quit.setBackground(new Color(0, 0, 0)); // white button
+			quit.setForeground(new Color(0, 0, 128)); // navy text
 			g.setColor(saved);
 		
 	}
@@ -144,7 +153,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
-			if (gs.isWonChallenge()) {
+			if (gs.wonChallenge()) {
 				g.drawString(WIN + "\n" + CHALLENGE, WIDTH/2,  12);
 			}
 			else {
@@ -161,4 +170,17 @@ public class UIManager extends JPanel {
 			g.setColor(saved);
 		
 	}
+		
+		// display the credits for the game
+		public void gameEnd(Graphics g) {
+			g.setColor(new Color(135, 206, 250)); //sky blue box
+			int recX = (int) ((int) WIDTH*0.05);
+			int recY = (int) ((int) HEIGHT*0.05);
+			int recWidth = (int) ((int) WIDTH*0.9);
+			int recHeight = (int) ((int) HEIGHT*0.9);
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
+			g.setColor(new Color(0, 0, 128)); // navy blue text
+			g.setFont(new Font("Arial", 20, 20));
+			g.drawString(CREDITS, WIDTH / 2, 12);
+		}
 }

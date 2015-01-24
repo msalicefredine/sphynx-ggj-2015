@@ -7,8 +7,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import model.Challenge;
 import model.ChallengeDummy;
-import model.SpaceInvaders;
-import model.Pacman;
+//import model.SpaceInvaders;
+//import model.Pacman;
 import model.Challenge;
 import model.MiniGames;
 
