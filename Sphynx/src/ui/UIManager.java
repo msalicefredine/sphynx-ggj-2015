@@ -73,8 +73,6 @@ public class UIManager extends JPanel {
 		// Draws the Backstory message and the start button
 		private void gameStart(Graphics g) {
 			Color saved = g.getColor();
-			g.setColor(new Color(135, 206, 260));
-			g.drawRoundRect(10, 10, 180, 180, 2, 2);
 			g.setColor(new Color(135, 206, 250));
 			g.fillRoundRect(10, 10, 180, 180, 2, 2);
 			g.setColor(new Color(0, 0, 0));
@@ -84,9 +82,11 @@ public class UIManager extends JPanel {
 			b.setFont(new Font("Arial", 20, 20));
 			b.setBackground(new Color(125, 206, 250));
 			b.setForeground(new Color(0, 0, 0));
+			g.setColor(saved);
 
 		}
 		
+		// Renders the user loss *make this an animation if we can
 	    private void gameLoss(Graphics g) {
 		// TODO Auto-generated method stub
 		

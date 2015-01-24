@@ -4,7 +4,6 @@ import java.awt.Graphics;
 
 import javax.swing.*;
 
-
 /**
  * Created by JD on 2015-01-23.
  */
