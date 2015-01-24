@@ -6,10 +6,11 @@ import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import model.Challenge;
-import model.SpaceInvaders;
-import model.Pacman;
-import model.Challenge;
 import model.MiniGames;
+import model.WordPuzzle;
+import model.pacman.ui.Game;
+import model.space_invaders.ui.SpaceInvaders;
+import model.tetris.ui.Tetris;
 
 
 /**
