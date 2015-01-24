@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Pacman/src"/>
-	<classpathentry kind="src" path="SpaceInvaders/src"/>
 	<classpathentry kind="src" path="Sphynx/src"/>
 	<classpathentry kind="src" path="Tetris/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

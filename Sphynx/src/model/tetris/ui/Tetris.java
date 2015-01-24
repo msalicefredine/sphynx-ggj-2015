@@ -1,6 +1,5 @@
 package model.tetris.ui;
 
-import model.MiniGames;
 import model.tetris.model.TetrisGame;
 
 import javax.swing.*;
@@ -13,15 +12,15 @@ import java.awt.event.KeyEvent;
 /**
  * Created by Sultan on 15-01-23.
  */
-public class Tetris extends JFrame implements MiniGames {
+public class Tetris extends JFrame {
 
-    private int interval;
+    private static final int INTERVAL = 250;
     private TetrisGame game;
     private GamePanel gp;
     private ScorePanel sp;
     private Timer t;
 
-    public Tetris(boolean hard) {
+    public Tetris() {
         super("Tetris");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -34,17 +33,12 @@ public class Tetris extends JFrame implements MiniGames {
         pack();
         centreOnScreen();
         setVisible(true);
-        addTimer(hard);
+        addTimer();
         t.start();
     }
 
-    private void addTimer(boolean hard) {
-        if (hard == true) {
-            interval = 125;
-        } else {
-            interval = 250;
-        }
-        t = new Timer(interval, new ActionListener(){
+    private void addTimer() {
+        t = new Timer(INTERVAL, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
                 game.update();
@@ -66,7 +60,7 @@ public class Tetris extends JFrame implements MiniGames {
         }
     }
 
-    public void run(boolean hard) {
-        new Tetris(hard);
+    public static void run(String[] args) {
+        new Tetris();
     }
 }
