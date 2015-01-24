@@ -17,9 +17,9 @@ public class UIManager extends JPanel {
 	
 	private SphynxGame game;
 	private static final String BACKSTORY = "";
-	private static final String CHALLENGE = "";
-	private static final String WIN = "";
-	private static final String LOSE = "";
+	private static final String CHALLENGE = "What will you do now?";
+	private static final String WIN = "You Win!";
+	private static final String LOSE = "You have been defeated by the sphynx!";
 	
 	private static final Integer HEIGHT = 200;
 	private static final Integer WIDTH = 200;
@@ -73,32 +73,83 @@ public class UIManager extends JPanel {
 		// Draws the Backstory message and the start button
 		private void gameStart(Graphics g) {
 			Color saved = g.getColor();
-			g.setColor(new Color(135, 206, 250));
-			g.fillRoundRect(10, 10, 180, 180, 2, 2);
-			g.setColor(new Color(0, 0, 0));
+			g.setColor(new Color(135, 206, 250)); //sky blue box
+			int recX = (int) ((int) WIDTH*0.05);
+			int recY = (int) ((int) HEIGHT*0.05);
+			int recWidth = (int) ((int) WIDTH*0.9);
+			int recHeight = (int) ((int) HEIGHT*0.9);
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
+			g.setColor(new Color(0, 0, 128)); // navy blue text
 			g.setFont(new Font("Arial", 20, 20));
 			g.drawString(BACKSTORY, WIDTH / 2, 12);
 			JButton b = new JButton("Start...");
 			b.setFont(new Font("Arial", 20, 20));
-			b.setBackground(new Color(125, 206, 250));
-			b.setForeground(new Color(0, 0, 0));
+			b.setBackground(new Color(255, 255, 255)); //white button
+			b.setForeground(new Color(0, 0, 128));
 			g.setColor(saved);
 
 		}
 		
 		// Renders the user loss *make this an animation if we can
 	    private void gameLoss(Graphics g) {
-		// TODO Auto-generated method stub
+	    	Color saved = g.getColor();
+			g.setColor(new Color(178, 34, 34)); //firebrick box
+			int recX = (int) ((int) WIDTH*0.05);
+			int recY = (int) ((int) HEIGHT*0.05);
+			int recWidth = (int) ((int) WIDTH*0.9);
+			int recHeight = (int) ((int) HEIGHT*0.9);
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
+			g.setColor(new Color(0, 0, 0)); // black text
+			g.setFont(new Font("Impact", 30, 30));
+			g.drawString(LOSE, WIDTH / 2, 12);
+			JButton b = new JButton("Play Again");
+			b.setFont(new Font("Impact", 20, 20));
+			b.setBackground(new Color(190, 190, 190)); // grey button
+			b.setForeground(new Color(0, 0, 0)); // black text
+			g.setColor(saved);
 		
 	}
-
+	    // Display Game Win text and play again option
 		private void gameWin(Graphics g) {
-		// TODO Auto-generated method stub
+			Color saved = g.getColor();
+			g.setColor(new Color(64, 224, 208)); //turquoise box
+			int recX = (int) ((int) WIDTH*0.05);
+			int recY = (int) ((int) HEIGHT*0.05);
+			int recWidth = (int) ((int) WIDTH*0.9);
+			int recHeight = (int) ((int) HEIGHT*0.9);
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
+			g.setColor(new Color(0, 0, 128)); // navy text
+			g.setFont(new Font("Impact", 30, 30));
+			g.drawString(WIN, WIDTH / 2, 12);
+			JButton b = new JButton("Play Again");
+			b.setFont(new Font("Impact", 20, 20)); 
+			b.setBackground(new Color(0, 0, 0)); // white button
+			b.setForeground(new Color(0, 0, 128)); // navy text
+			g.setColor(saved);
 		
 	}
 
+		// display challenge dialogue box
 		private void gameChallenge(Graphics g) {
-		// TODO Auto-generated method stub
+			Color saved = g.getColor();
+			g.setColor(new Color(135, 206, 250)); // sky blue 
+			int recX = (int) ((int) WIDTH*0.05);
+			int recY = (int) ((int) HEIGHT*0.05);
+			int recWidth = (int) ((int) WIDTH*0.9);
+			int recHeight = (int) ((int) HEIGHT*0.9);
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
+			g.setColor(new Color(0, 0, 128)); // navy text
+			g.setFont(new Font("Impact", 30, 30));
+			g.drawString(CHALLENGE, WIDTH / 2, 12);
+			JButton easy = new JButton("Easy");
+			easy.setFont(new Font("Impact", 20, 20)); 
+			easy.setBackground(new Color(50, 205, 50)); // green button
+			easy.setForeground(new Color(0, 255, 127)); // bright green text
+			JButton hard = new JButton("Hard");
+			hard.setFont(new Font("Impact", 20, 20)); 
+			hard.setBackground(new Color(178, 34, 34)); // firebrick button
+			hard.setForeground(new Color(255, 127, 80)); // light orange button
+			g.setColor(saved);
 		
 	}
 }
