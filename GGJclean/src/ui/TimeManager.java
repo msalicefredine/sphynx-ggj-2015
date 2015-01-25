@@ -20,7 +20,7 @@ public class TimeManager {
     }
 
     public long getCurrentTime() {
-        return (System.currentTimeMillis() - startTime) / 1000;
+        return (endTime - System.currentTimeMillis()) / 1000;
     }
 
 
