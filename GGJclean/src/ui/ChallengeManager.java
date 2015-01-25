@@ -42,7 +42,7 @@ public class ChallengeManager {
     /**
      * Loads all challenges for the game in random order into two separate queues for easy and hard
      */
-    private void loadChallenges() {
+    /*private void loadChallenges() {
         easyChallenges = new ArrayBlockingQueue<Challenge>(20);
         hardChallenges = new ArrayBlockingQueue<Challenge>(10);
 
@@ -50,12 +50,12 @@ public class ChallengeManager {
             Double randN = Math.ceil(5 * Math.random());
             int challengeNumber = randN.intValue();
             Challenge c = getChallenge(challengeNumber, false);
-            easyChallenges.add(c);
-    /*public void loadChallenges() {
+            easyChallenges.add(c);*/
+    public void loadChallenges() {
         hardChallenges = new ArrayList<Integer>();
         easyChallenges = new ArrayList<Integer>();
         for (int i = 1; i < 3; i++) {
-            hardChallenges.add(i); */
+            hardChallenges.add(i); 
         }
         Collections.shuffle(hardChallenges);
         for (int i = 1; i < 4; i++) {

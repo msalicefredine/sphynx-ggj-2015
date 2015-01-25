@@ -57,6 +57,7 @@ public class UIManager extends JPanel {
 		
 		g.drawImage(i, 0, 0, WIDTH, HEIGHT, 0, 0, 1367, 764, null);
 		
+		setOpaque(false);
 		
 		// indicates we need the Backstory screen
 		if (gs.atStart()) {
