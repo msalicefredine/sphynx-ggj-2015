@@ -51,13 +51,13 @@ public class TetrisGame {
                 isGameOver = true;
             }
         } else if (score >= 100) {
-            return false;
+            return true;
         } else {
             currentTetrimino.moveDown();
         }
         clearFullLines();
         checkGameOver();
-        return true;
+        return false;
     }
 
     public boolean isGameOver() {

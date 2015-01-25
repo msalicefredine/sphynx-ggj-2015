@@ -2,6 +2,7 @@ package model.pacman.ui;
 
 import model.pacman.model.Board;
 import model.pacman.model.Pacman;
+import ui.ChallengeManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,11 +20,14 @@ public class Game extends JFrame {
 
     private Timer gameTicker;
 
+    private ChallengeManager cm;
+
     // Requires: nothing
     // Modifies: this
     // Effects:  Performs all initializing by creating the board model and graphic view of the board as well as the game ticker
-    public Game() {
+    public Game(ChallengeManager challengeManager) {
         super("Pacman");
+        cm = challengeManager;
         init();
     }
 
@@ -54,7 +58,7 @@ public class Game extends JFrame {
         if (gameTicker != null) {
             gameTicker.stop();
         }
-        gameTicker = new Timer(1000, new GameTickerActionListener());
+        gameTicker = new Timer(750, new GameTickerActionListener());
         gameTicker.start();
     }
 
@@ -81,13 +85,6 @@ public class Game extends JFrame {
         this.setJMenuBar(menuBar);
     }
 
-    /**
-     * Starts the main application
-     */
-    public void run(boolean hard) {
-        new Game();
-    }
-
     private class ResetGameAction extends AbstractAction {
         @Override
         public void actionPerformed(ActionEvent arg0) {
@@ -96,13 +93,19 @@ public class Game extends JFrame {
     }
 
     private class GameTickerActionListener extends AbstractAction {
-
+        int acc = 0;
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (!gameBoard.isGameOver()) {
+            if (!gameBoard.isGameOver() || !gameBoard.isFoodOver()) {
                 gameBoard.tickBoard();
                 gameViewPanel.repaint();
+                acc++;
             } else {
+                if (acc == 750 || gameBoard.isGameOver()) {
+                    cm.setWin(false);
+                } else if (gameBoard.isFoodOver()) {
+                    cm.setWin(true);
+                }
                 gameViewPanel.repaint();
                 gameTicker.stop();
             }

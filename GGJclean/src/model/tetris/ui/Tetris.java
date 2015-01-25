@@ -1,6 +1,7 @@
 package model.tetris.ui;
 
 import model.tetris.model.TetrisGame;
+import ui.ChallengeManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,12 +20,14 @@ public class Tetris extends JFrame {
     private GamePanel gp;
     private ScorePanel sp;
     private Timer t;
+    private ChallengeManager cm;
 
-    public Tetris(boolean hard) {
+    public Tetris(boolean hard, ChallengeManager challengeManager) {
         super("Tetris");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         game = new TetrisGame();
+        cm = challengeManager;
         gp = new GamePanel(game);
         sp = new ScorePanel(game);
         add(gp);
@@ -47,7 +50,12 @@ public class Tetris extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 game.update();
                 acc++;
-                if (acc == 6 || game.update() == false) {
+                if (acc == interval) {
+                    cm.setWin(false);
+                    dispose();
+                }
+                if (game.update() == true) {
+                    cm.setWin(true);
                     dispose();
                 }
                 gp.repaint();
@@ -67,9 +75,5 @@ public class Tetris extends JFrame {
         public void keyPressed(KeyEvent e) {
             game.keyPressed(e);
         }
-    }
-
-    public void run(boolean hard) {
-        new Tetris(hard);
     }
 }
