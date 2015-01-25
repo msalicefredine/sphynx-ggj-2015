@@ -90,7 +90,6 @@ public class ChallengeManager {
     public void startEasyChallenge() {
         if (easyChallenges.isEmpty()) {
             loadChallenges();
-            startEasyChallenge();
         } else {
             int i = easyChallenges.get(0);
             easyChallenges.remove(0);
