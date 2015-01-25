@@ -8,7 +8,6 @@ public class TimeManager {
 
 
     private static long INITIAL_TIME = 60000;
-    private static long BONUS = 6000;
     private long endTime;
     private long startTime;
     private long acc;
@@ -20,7 +19,7 @@ public class TimeManager {
     }
 
     public long getCurrentTime() {
-        return (endTime - System.currentTimeMillis()) / 1000;
+        return (System.currentTimeMillis() - startTime) / 1000;
     }
 
 
@@ -51,8 +50,8 @@ public class TimeManager {
         timerOn = true;
     }
 
-    public void addBonusTime() {
-        endTime = endTime + BONUS;
+    public void addBonusTime(long x) {
+        endTime = endTime + x;
     }
 
 
