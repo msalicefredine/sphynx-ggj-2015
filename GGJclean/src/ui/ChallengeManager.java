@@ -26,7 +26,7 @@ public class ChallengeManager {
     /**
      * Should be called after game starts to associate ChallengeManager with the game it is running in
      */
-    public void setGame(SphynxGame game) {
+    /*public void setGame(SphynxGame game) {
         this.game = game;
     }
 
@@ -56,6 +56,7 @@ public class ChallengeManager {
         easyChallenges = new ArrayList<Integer>();
         for (int i = 1; i < 3; i++) {
             hardChallenges.add(i); 
+
         }
         Collections.shuffle(hardChallenges);
         for (int i = 1; i < 4; i++) {
@@ -90,6 +91,7 @@ public class ChallengeManager {
     public void startEasyChallenge() {
         if (easyChallenges.isEmpty()) {
             loadChallenges();
+            startEasyChallenge();
         } else {
             int i = easyChallenges.get(0);
             easyChallenges.remove(0);
