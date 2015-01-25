@@ -33,29 +33,35 @@ public class Game {
                 sphynxGame.getGameState().getPath().moveBy(STEP_HARD);
             }
             else sphynxGame.getGameState().getPath().moveBy(STEP_EASY);
+
+            if (sphynxGame.getGameState().getPath().reachedEnd()) {
+                sphynxGame.getGameState().setWonGame();
+            }
         }
-        
+
         else sphynxGame.getGameState().setLostChallenge();
     }
+
 
     public void keyPressed(KeyEvent e) {
 
         if (sphynxGame.getGameState().atStart() && e.getKeyCode() == KeyEvent.VK_SPACE) {
+            sphynxGame.getTimeManager().startTimer();
             sphynxGame.getGameState().atChallengeMenu();
         }
 
         if (sphynxGame.getGameState().atChallengeMenu()) {
 
             if (e.getKeyCode() == KeyEvent.VK_H) {
+                hardOn = true;
                 updateScore(sphynxGame.getChallengeManager().startChallenge(true));
                 sphynxGame.getGameState().atChallengeMenu();
-                hardOn = true;
             }
 
             if (e.getKeyCode() == KeyEvent.VK_E) {
+                hardOn = false;
                 updateScore(sphynxGame.getChallengeManager().startChallenge(false));
                 sphynxGame.getGameState().atChallengeMenu();
-                hardOn = false;
             }
         }
 

@@ -31,7 +31,9 @@ public class SphynxGame extends JFrame {
         gameState.setAtStart();
 
         challengeManager = new ChallengeManager();
+
         timeManager = new TimeManager();
+
         uiManager = new UIManager(this, gameState);
 
         add(uiManager);
