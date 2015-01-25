@@ -23,11 +23,39 @@ public class ChallengeManager {
         loadChallenges();
     }
 
-    public void loadChallenges() {
+    /**
+     * Should be called after game starts to associate ChallengeManager with the game it is running in
+     */
+    public void setGame(SphynxGame game) {
+        this.game = game;
+    }
+
+    public static ChallengeManager getInstance() {
+        if (challengeManager == null) {
+            challengeManager = new ChallengeManager();
+        }
+        return challengeManager;
+    }
+
+    // Methods
+
+    /**
+     * Loads all challenges for the game in random order into two separate queues for easy and hard
+     */
+    private void loadChallenges() {
+        easyChallenges = new ArrayBlockingQueue<Challenge>(20);
+        hardChallenges = new ArrayBlockingQueue<Challenge>(10);
+
+        for (int i = 0; i < 20; i++) {
+            Double randN = Math.ceil(5 * Math.random());
+            int challengeNumber = randN.intValue();
+            Challenge c = getChallenge(challengeNumber, false);
+            easyChallenges.add(c);
+    /*public void loadChallenges() {
         hardChallenges = new ArrayList<Integer>();
         easyChallenges = new ArrayList<Integer>();
         for (int i = 1; i < 3; i++) {
-            hardChallenges.add(i);
+            hardChallenges.add(i); */
         }
         Collections.shuffle(hardChallenges);
         for (int i = 1; i < 4; i++) {

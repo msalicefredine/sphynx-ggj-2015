@@ -29,6 +29,9 @@
         <entry file="file://$PROJECT_DIR$/src/ui/ChallengeManager.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0" vertical-offset="305" max-vertical-offset="1080">
+=======
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
               <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
               <folding>
@@ -39,6 +42,7 @@
                 <element signature="e#2035#2036#0" expanded="true" />
 =======
             <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1080">
+>>>>>>> 2ce47cae0938cb40adb0243176ff79ace5d2e0f5
               <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
               <folding>
                 <element signature="e#925#926#0" expanded="true" />
@@ -130,12 +134,17 @@
         <entry file="file://$PROJECT_DIR$/src/model/tetris/ui/Tetris.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+            <state vertical-scroll-proportion="0.84070796" vertical-offset="470" max-vertical-offset="1035">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+=======
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1110">
               <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
 =======
             <state vertical-scroll-proportion="0.5575221" vertical-offset="15" max-vertical-offset="1035">
               <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
 >>>>>>> b5d25053e8c28e8d2f49428cba253623a5eaab46
+>>>>>>> 2ce47cae0938cb40adb0243176ff79ace5d2e0f5
               <folding />
             </state>
           </provider>
@@ -1087,14 +1096,23 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/ui/TimeManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.923077" vertical-offset="481" max-vertical-offset="1020">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+=======
     <entry file="file://$PROJECT_DIR$/src/model/space_invaders/model/SIGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="2790">
           <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+>>>>>>> 2ce47cae0938cb40adb0243176ff79ace5d2e0f5
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/src.zip!/javax/swing/Timer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33247423" vertical-offset="7062" max-vertical-offset="8730">
@@ -1155,6 +1173,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
           <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
 =======
+>>>>>>> 2ce47cae0938cb40adb0243176ff79ace5d2e0f5
     <entry file="file://$PROJECT_DIR$/src/ui/SphynxGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1080">
@@ -1170,6 +1189,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84070796" vertical-offset="470" max-vertical-offset="1035">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+=======
     <entry file="file://$PROJECT_DIR$/src/ui/TimeManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.923077" vertical-offset="481" max-vertical-offset="1020">
@@ -1204,6 +1229,7 @@
         <state vertical-scroll-proportion="0.5575221" vertical-offset="15" max-vertical-offset="1035">
           <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
 >>>>>>> b5d25053e8c28e8d2f49428cba253623a5eaab46
+>>>>>>> 2ce47cae0938cb40adb0243176ff79ace5d2e0f5
           <folding />
         </state>
       </provider>
