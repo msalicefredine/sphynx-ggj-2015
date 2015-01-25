@@ -1,6 +1,7 @@
 package model.space_invaders.ui;
 
 import model.space_invaders.model.SIGame;
+import ui.ChallengeManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +20,16 @@ public class SpaceInvaders extends JFrame {
     private GamePanel gp;
     private ScorePanel sp;
     private Timer t;
+    private ChallengeManager cm;
 
     // Constructs main window
     // effects: sets up window in which Space Invaders game will be played
-    public SpaceInvaders(boolean hard) {
+    public SpaceInvaders(boolean hard, ChallengeManager challengeManager) {
         super("Space Invaders");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         game = new SIGame();
+        cm = challengeManager;
         gp = new GamePanel(game);
         sp = new ScorePanel(game);
         add(gp);
@@ -48,9 +51,19 @@ public class SpaceInvaders extends JFrame {
             interval = 10;
         }
         t = new Timer(interval, new ActionListener(){
+            int acc = 0;
             @Override
             public void actionPerformed(ActionEvent ae) {
                 game.update();
+                acc++;
+                if (acc == interval || game.isOver() == true) {
+                    cm.setWin(false);
+                    dispose();
+                }
+                if (game.update() == true) {
+                    cm.setWin(true);
+                    dispose();
+                }
                 gp.repaint();
                 sp.update();
             }
@@ -73,10 +86,5 @@ public class SpaceInvaders extends JFrame {
         public void keyPressed(KeyEvent e) {
             game.keyPressed(e);
         }
-    }
-
-    // Play the game
-    public void run(boolean hard) {
-        new SpaceInvaders(hard);
     }
 }

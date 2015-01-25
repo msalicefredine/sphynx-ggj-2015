@@ -30,7 +30,7 @@ public class BoardPanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        if (gameBoard.isGameOver()) {
+        if (gameBoard.isGameOver() || gameBoard.isFoodOver()) {
             Color saved = g.getColor();
             g.setColor(Color.RED);
             g.setFont(new Font("Arial Bold", 20, 20));
