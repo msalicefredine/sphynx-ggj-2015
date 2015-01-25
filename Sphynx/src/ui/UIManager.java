@@ -18,7 +18,7 @@ public class UIManager extends JPanel {
 	
 	private SphynxGame game;
 	private GameState gs;
-	private static final String BACKSTORY = "";
+	private static final String BACKSTORY = "Hello World";
 	private static final String CHALLENGE = "What will you do now?";
 	private static final String WIN = "You Win!";
 	private static final String LOSE = "You have been defeated by the sphynx!";
@@ -26,14 +26,14 @@ public class UIManager extends JPanel {
 	private static final String GAMELOSS = "You have been eaten by the Sphynx...";
 	private static final String CREDITS = "";
 	
-	private static final Integer HEIGHT = 200;
-	private static final Integer WIDTH = 200;
+	private static final Integer HEIGHT = 384;
+	private static final Integer WIDTH = 683;
 	
 	/* creates a UIManager
 	 * sets size and colour of background
 	 */
 	public UIManager(SphynxGame sg, GameState gs) {
-		setPreferredSize(new Dimension(HEIGHT, WIDTH));
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setBackground(new Color(139, 80, 14));
 		this.game = sg;
 		this.gs = gs;
@@ -46,7 +46,7 @@ public class UIManager extends JPanel {
 		
 		// indicates we need the Backstory screen
 		if (gs.atStart()) {
-			gameStart(g);
+			gameChallenge(g);
 		}
 		
 		// indicates the game is posing a challenge to the USER
@@ -78,19 +78,15 @@ public class UIManager extends JPanel {
 		// Draws the Backstory message and the start button
 		private void gameStart(Graphics g) {
 			Color saved = g.getColor();
-			g.setColor(new Color(135, 206, 250)); //sky blue box
+			g.setColor(new Color(245, 222, 179)); //wheat box
 			int recX = (int) ((int) WIDTH*0.05);
 			int recY = (int) ((int) HEIGHT*0.05);
 			int recWidth = (int) ((int) WIDTH*0.9);
 			int recHeight = (int) ((int) HEIGHT*0.9);
-			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
-			g.setColor(new Color(0, 0, 128)); // navy blue text
+			g.fillRoundRect(recX, recY, recWidth, recHeight, 10, 10);
+			g.setColor(new Color(139, 69, 19)); // saddle brown text
 			g.setFont(new Font("Arial", 20, 20));
-			g.drawString(BACKSTORY, WIDTH / 2, 12);
-			JButton b = new JButton("Start...");
-			b.setFont(new Font("Arial", 20, 20));
-			b.setBackground(new Color(255, 255, 255)); //white button
-			b.setForeground(new Color(0, 0, 128));
+			g.drawString(BACKSTORY, recX + 5, HEIGHT/2);
 			g.setColor(saved);
 
 		}
@@ -106,11 +102,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 0)); // black text
 			g.setFont(new Font("Impact", 30, 30));
-			g.drawString(GAMELOSS, WIDTH / 2, 12);
-			JButton b = new JButton("Play Again");
-			b.setFont(new Font("Impact", 20, 20));
-			b.setBackground(new Color(190, 190, 190)); // grey button
-			b.setForeground(new Color(0, 0, 0)); // black text
+			g.drawString(GAMELOSS, recX + 5, HEIGHT/2);
 			g.setColor(saved);
 		
 	}
@@ -125,15 +117,7 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
-			g.drawString(GAMEWIN, WIDTH / 2, 12);
-			JButton b = new JButton("Play Again");
-			b.setFont(new Font("Impact", 20, 20)); 
-			b.setBackground(new Color(0, 0, 0)); // white button
-			b.setForeground(new Color(0, 0, 128)); // navy text
-			JButton quit = new JButton("Quit");
-			quit.setFont(new Font("Impact", 20, 20)); 
-			quit.setBackground(new Color(0, 0, 0)); // white button
-			quit.setForeground(new Color(0, 0, 128)); // navy text
+			g.drawString(GAMEWIN, recX + 5, HEIGHT/2);
 			g.setColor(saved);
 		
 	}
@@ -150,19 +134,12 @@ public class UIManager extends JPanel {
 			g.setColor(new Color(0, 0, 128)); // navy text
 			g.setFont(new Font("Impact", 30, 30));
 			if (gs.wonEasyChallenge() || gs.wonHardChallenge()) {
-				g.drawString(WIN + "\n" + CHALLENGE, WIDTH/2,  12);
+				g.drawString(WIN, recX + 5, HEIGHT/3);
 			}
 			else {
-				g.drawString(LOSE + "\n" + CHALLENGE, WIDTH/2,  12);
+				g.drawString(LOSE, recX + 5, HEIGHT/3);
 			}
-			JButton easy = new JButton("Easy");
-			easy.setFont(new Font("Impact", 20, 20)); 
-			easy.setBackground(new Color(50, 205, 50)); // green button
-			easy.setForeground(new Color(0, 255, 127)); // bright green text
-			JButton hard = new JButton("Hard");
-			hard.setFont(new Font("Impact", 20, 20)); 
-			hard.setBackground(new Color(178, 34, 34)); // firebrick button
-			hard.setForeground(new Color(255, 127, 80)); // light orange button
+			g.drawString(CHALLENGE, recX + 5, (2*HEIGHT)/3);
 			g.setColor(saved);
 		
 	}
@@ -177,6 +154,6 @@ public class UIManager extends JPanel {
 			g.fillRoundRect(recX, recY, recWidth, recHeight, 2, 2);
 			g.setColor(new Color(0, 0, 128)); // navy blue text
 			g.setFont(new Font("Arial", 20, 20));
-			g.drawString(CREDITS, WIDTH / 2, 12);
+			g.drawString(CREDITS, recX + 5, recY + 15);
 		}
 }
