@@ -32,12 +32,16 @@ public class SIGame {
     // Updates the game on clock tick
     // modifies: this
     // effects:  updates tank, missiles and invaders
-    public void update() {
+    public boolean update() {
         moveSprites();
         checkMissiles();
         invade();
         checkCollisions();
+        if (numInvadersDestroyed == 10) {
+            return true;
+        }
         checkGameOver();
+        return false;
     }
 
 

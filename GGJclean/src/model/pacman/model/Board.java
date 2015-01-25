@@ -112,9 +112,7 @@ public class Board {
                 if (g.isPassable()) {
                     if (g.hasFood()) {
                         existsFood = true;
-                    } //else {
-                    //existsFood = false;
-                    //}
+                    }
                 }
             }
         }
@@ -131,7 +129,21 @@ public class Board {
                 pacmanCaught = true;
         }
 
-        return pacmanCaught || !existsFood;
+        return pacmanCaught;
+    }
+
+    public boolean isFoodOver() {
+        boolean existsFood = false;
+        for (List<GridLocation> row : getGridRows()) {
+            for (GridLocation g : row) {
+                if (g.isPassable()) {
+                    if (g.hasFood()) {
+                        existsFood = true;
+                    }
+                }
+            }
+        }
+        return !existsFood;
     }
 
     // FILL IN FOR TASK M3
