@@ -11,21 +11,27 @@ import java.awt.event.*;
  */
 public class SphynxGame extends JFrame {
 
-    private static final int INTERVAL = 200;
     private Game game;
     private UIManager uiManager;
     private GameState gameState;
+    private ChallengeManager challengeManager;
+    private TimeManager timeManager;
 
 
     public SphynxGame() {
 
         super("Sphynx");
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        game = new Game();
+        game = new Game(this);
+
         gameState = new GameState();
         gameState.setAtStart();
+
+        challengeManager = new ChallengeManager();
+        timeManager = new TimeManager();
         uiManager = new UIManager(this, gameState);
 
         add(uiManager);
@@ -33,6 +39,18 @@ public class SphynxGame extends JFrame {
         pack();
         centreOnScreen();
         setVisible(true);
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public ChallengeManager getChallengeManager() {
+        return challengeManager;
+    }
+
+    public TimeManager getTimeManager() {
+        return timeManager;
     }
 
     private void centreOnScreen() {

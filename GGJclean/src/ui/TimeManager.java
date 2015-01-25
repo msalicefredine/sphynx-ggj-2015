@@ -8,6 +8,7 @@ public class TimeManager {
 
 
     private static long INITIAL_TIME = 60000;
+    private static long BONUS = 6000;
     private long endTime;
     private long startTime;
     private long acc;
@@ -50,8 +51,8 @@ public class TimeManager {
         timerOn = true;
     }
 
-    public void addBonusTime(long x) {
-        endTime = endTime + x;
+    public void addBonusTime() {
+        endTime = endTime + BONUS;
     }
 
 
