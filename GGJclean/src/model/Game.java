@@ -45,9 +45,10 @@ public class Game {
 
     public void keyPressed(KeyEvent e) {
 
-        if (sphynxGame.getGameState().atStart() && e.getKeyCode() == KeyEvent.VK_SPACE) {
-            sphynxGame.getTimeManager().startTimer();
-            sphynxGame.getGameState().atChallengeMenu();
+        if (sphynxGame.getGameState().atStart() && e.getKeyCode() == KeyEvent.VK_UP) {
+        	sphynxGame.getTimeManager().startTimer();
+            sphynxGame.getGameState().setAtChallengeMenue();
+            sphynxGame.getUIManager().update();
         }
 
         if (sphynxGame.getGameState().atChallengeMenu()) {

@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="GGJclean/src"/>
 	<classpathentry kind="src" path="Pacman/src"/>
-	<classpathentry kind="src" path="Sphynx/src"/>
 	<classpathentry kind="src" path="Tetris/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

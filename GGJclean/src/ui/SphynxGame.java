@@ -55,6 +55,10 @@ public class SphynxGame extends JFrame {
     public TimeManager getTimeManager() {
         return timeManager;
     }
+    
+    public UIManager getUIManager() {
+    	return uiManager;
+    }
 
     private void centreOnScreen() {
         Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();

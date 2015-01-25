@@ -85,8 +85,29 @@ public class UIManager extends JPanel {
 		
 	}
 	
-	public void update(ActionEvent ae) {
-		paintComponent(game.getGraphics());
+	public void update() {
+		if (gs.atStart()) {
+			gameStart(game.getGraphics());
+		}
+		
+		// indicates the game is posing a challenge to the USER
+		if (gs.atChallengeMenu()) {
+			gameChallenge(game.getGraphics());
+		}
+		
+		// indicates the USER has won the game
+		if (gs.wonGame()) {
+			gameWin(game.getGraphics());
+		}
+		
+		// the USER has been defeated by the Sphynx
+		if (gs.lostGame()) {
+			gameLoss(game.getGraphics());
+		}
+		
+		if (gs.atEnd()) {
+			gameEnd(game.getGraphics());
+		}
 	}
 	
 	private void renderTimer(Graphics g) {

@@ -1,9 +1,0 @@
-package ui;
-
-/**
- * Created by JD on 2015-01-24.
- */
-public enum State {
-    START_SCREEN, BEFORE_CHALLENGE, EASY_CHALLENGE, HARD_CHALLENGE,AFTER_CHALLENGE, END_SCREEN
-
-}
