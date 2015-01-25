@@ -174,7 +174,7 @@ public class UIManager extends JPanel {
 			renderTimer(g);
 			g.setColor(new Color(139, 69, 19)); 
 			g.setFont(new Font("Herculanum", 30, 30));
-			if (gs.wonEasyChallenge() || gs.wonHardChallenge()) {
+			if (gs.wonChallenge()) {
 				centerString(WIN, g, HEIGHT/3);
 			}
 			else if (gs.lostChallenge()) {
