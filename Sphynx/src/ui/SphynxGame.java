@@ -1,0 +1,66 @@
+package ui;
+
+import model.Game;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ * Created by Sultan on 15-01-24.
+ */
+public class SphynxGame extends JFrame {
+
+    private static final int INTERVAL = 200;
+    private Game game;
+    private UIManager uiManager;
+    private Timer timer;
+    private GameState gameState;
+    private TimeManager timeManager;
+    private ChallengeManager challengeManager;
+    private PointManager pointManager;
+
+
+    public SphynxGame() {
+        super("Sphynx");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        game = new Game();
+        gameState = new GameState();
+        gameState.setAtStart();
+        timeManager = new TimeManager();
+        pointManager = new PointManager();
+        uiManager = new UIManager(this, gameState);
+        add(uiManager);
+        addKeyListener(new KeyHandler());
+        pack();
+        centreOnScreen();
+        setVisible(true);
+        addTimer();
+    }
+
+    private void centreOnScreen() {
+        Dimension scrn = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((scrn.width - getWidth()) / 2, (scrn.height - getHeight()) / 2);
+    }
+
+    private void addTimer() {
+        timer = new Timer(INTERVAL, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
+
+    private class KeyHandler extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            game.keyPressed(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        new SphynxGame();
+    }
+}
