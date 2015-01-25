@@ -29,6 +29,7 @@ public class ChallengeManager {
         loadChallenges();
     }
 
+
     /**
      * Should be called after game starts to associate ChallengeManager with the game it is running in
      */
@@ -36,8 +37,8 @@ public class ChallengeManager {
         this.game = game;
     }
 
-    public static ChallengeManager getInstance( ) {
-        if (challengeManager.equals(null)) {
+    public static ChallengeManager getInstance() {
+        if (challengeManager == null) {
             challengeManager = new ChallengeManager();
         }
         return challengeManager;
